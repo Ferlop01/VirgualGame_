@@ -1,0 +1,809 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+header{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+
+header .brand{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header .brand:hover{
+    color: #d104c0;
+}
+
+header .navigation{
+    position: relative;
+}
+
+header .navigation .navigation-items a{
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+    background: #d104c0;
+}
+
+section{
+    padding: 100px 200px;
+}
+
+
+
+/*Banner*/
+.banner {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    background-color: hsl(0, 0%, 82%);
+    box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05),
+                0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+                0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+                0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+    border-radius: 0.375em;
+    transition: 0.3s;
+  }
+  
+  .banner__grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .banner__grid > * {
+    min-width: 0;
+  }
+  
+  .banner__link {
+    position: relative;
+    text-decoration: none;
+    color: #d104c0;
+    display: inline-block;
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform-origin: left bottom;
+  }
+  
+  .banner__link i {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  
+  .banner__link::after { 
+    content: "";
+    background-color: currentColor;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    -webkit-clip-path: inset(0% round 0.1875em);
+            clip-path: inset(0% round 0.1875em);
+    opacity: 0.15;
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  
+  .banner__figure {
+    height: 0;
+    width: 100%;
+    padding-bottom: 50%;
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .banner__text {
+    padding: 1.5rem;
+  }
+  
+  .banner__link-wrapper {
+    margin-top: 1rem;
+  }
+  
+  .banner:hover {
+    box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05),
+                0 0.9px 1.25px hsla(230, 13%, 9%, 0.025),
+                0 3px 5px hsla(230, 13%, 9%, 0.05),
+                0 12px 20px hsla(230, 13%, 9%, 0.09);
+  }
+  
+  .banner:hover .banner__link {
+    transform: scale(1.3);
+  }
+  
+  .banner:hover .banner__link i { 
+    transform: scale(0.7);
+  }
+  
+  .banner:hover .banner__link::after {
+    height: 100%;
+  }
+  
+  .banner:hover .banner__figure {
+    transform: scale(1.05);
+  }
+  
+  @media (min-width: 64rem) {
+    .banner__grid {
+      flex-direction: row-reverse;
+    }
+  
+    .banner__grid > * {
+      width: 50%;
+    }
+  
+    .banner__figure {
+      height: 100%;
+      padding-bottom: 0;
+      -webkit-clip-path: polygon(100px 0%, 100% 0%, 100% 100%, 50px 100%);
+              clip-path: polygon(100px 0%, 100% 0%, 100% 100%, 50px 100%);
+    }
+  
+    .banner__text {
+      padding: 3rem;
+    }
+  
+    .banner__link-wrapper {
+      margin-top: 2rem;
+    }
+  
+    .banner--invert .banner__grid {
+      flex-direction: row;
+    }
+  
+    .banner--invert .banner__figure {
+      -webkit-clip-path: polygon(0% 0%, calc(100% - 100px) 0%, calc(100% - 50px) 100%, 0% 100%);
+              clip-path: polygon(0% 0%, calc(100% - 100px) 0%, calc(100% - 50px) 100%, 0% 100%);
+    }
+  
+    .banner--invert .banner__text {
+      text-align: right;
+    }
+  
+    .banner--invert .banner__link {
+      transform-origin: right bottom;
+    }
+  
+    .banner:hover .banner__figure {
+      -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+              clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+
+
+/*whatsapp*/
+.btn-wsp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  line-height: 63px;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  z-index: 9999; /* Corregir el z-index */
+  transition: all 300ms ease;
+}
+
+.btn-wsp:hover {
+  background: #20ba5a;
+}
+
+ /*inicio*/ 
+    .home{
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.959);
+    }
+
+    .home:before{
+        z-index: 777;
+        content: '';
+        position: absolute;
+        background: rgba(251, 3, 3, 0.034);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .home .content{
+        z-index: 888;
+        color: #fff;
+        width: 70%;
+        margin-top: 50px;
+        display: none;
+    }
+
+    .home .content.active{
+        display: block;
+    }
+
+    .home .content h1{
+        font-size: 4em;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        line-height: 75px;
+        margin-bottom: 40px;
+    }
+
+    .home .content h1 span{
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .home .content p{
+        margin-bottom: 65px;
+    }
+
+    .home .content a{
+        background: #fff;
+        padding: 15px 35px;
+        color: #d104c0;
+        font-size: 1.1em;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 2px;
+    }
+    .home .media-icons{
+        z-index: 888;
+        position: absolute;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.5s ease;
+    }
+
+    .home .media-icons a{
+        color: #fff;
+        font-size: 1.6em;
+        transition: 0.3s ease;
+    }
+
+    .home .media-icons a:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    .home .media-icons a:hover{
+        transform: scale(1.3);
+        color: #d104c0;
+    }
+
+    .home video{
+        z-index: 000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slider-navigation{
+        z-index: 888;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(80px);
+        margin-bottom: 12px;
+    }
+
+    .slider-navigation .nav-btn{
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+        transition: 0.3s ease;
+    }
+
+    .slider-navigation .nav-btn.active{
+        background: #d104c0;
+    }
+
+    .slider-navigation .nav-btn:not(:last-child){
+        margin-right: 20px;
+    }
+
+    .slider-navigation .nav-btn:hover{
+        transform: scale(1.2);
+    }
+
+    .video-slide{
+        position: absolute;
+        width: 100%;
+        clip-path: circle(0% at 0 50%);
+    }
+
+    .video-slide.active{
+        clip-path: circle(150% at 0 50%);
+        transition: 2s ease;
+        transition-property: clip-path;
+    }
+
+    @media (max-width: 1040px){
+        header{
+            padding: 12px 20px;
+        }
+        section{
+            padding: 100px 20px;
+        }
+
+        .home .media-icons{
+            right: 15px;
+        }
+
+        header .navigation{
+            display: none;
+        }
+
+        header .navigation.active{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(1, 1, 1, 0.5);
+        }
+
+        header .navigation .navigation-items a{
+            color: #222;
+            font-size: 1.2em;
+            margin: 20px;
+        }
+
+        header .navigation .navigation-items a:before{
+            background: #222;
+            height: 5px;
+    }
+    header .navigation.active .navigation-items{
+        background: #fff;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+    }
+
+    .menu-btn{
+        background: url(menu.png)no-repeat;
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .menu-btn.active{
+        z-index: 999;
+        background: url(close.png)no-repeat;
+        background-size: 25px;
+        background-position: center;
+        transition: 0.3s ease;
+    }
+    }
+
+    @media (max-width: 560px){
+        .home .content h1{
+            font-size: 3em;
+            line-height: 60px;
+        }
+    }
+
+/* Estilos para el Popup */
+.popup {
+  position: fixed;
+  top: 80px; 
+  right: 20px; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: white; 
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0; 
+  transition: opacity 0.5s ease; 
+}
+
+.popup.show {
+  opacity: 1;
+}
+
+
+    
+ /*Productos*/
+
+ /* Estilo de la sección de productos */
+.portafolio {
+  background-color: #000;
+}
+
+.portafolio h2 {
+  margin-bottom: 4rem;
+}
+
+/* Estilo del contenedor de productos en 3 columnas */
+.portafolio-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 2.5rem; /* Espacio entre los productos */
+  align-items: center;
+}
+
+/* Estilo de cada producto en el portafolio */
+.portafolio-container .portafolio-box {
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem var(--bg-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Alineación vertical de los elementos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+/* Efecto de escala en la imagen al pasar el ratón */
+.portafolio-box img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+/* Al pasar el ratón, la imagen se escala */
+.portafolio-box:hover img {
+  transform: scale(1.1);
+}
+
+/* Capa con los botones (Ver más y Añadir al carrito) */
+.portafolio-box .portafolio-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(245, 9, 154);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+/* Al pasar el ratón sobre el portafolio-box, la capa sube */
+.portafolio-box:hover .portafolio-layer {
+  transform: translateY(0);
+}
+
+/* Títulos y descripciones dentro de la capa */
+.portafolio-layer h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.portafolio-layer p {
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo para los enlaces (los botones dentro de la capa) */
+.portafolio-layer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background: var(--text-color);
+  border-radius: 50%;
+  margin: 0 0.5rem; /* Espaciado entre los botones */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Animación suave */
+}
+
+.portafolio-layer a i {
+  font-size: 1.5rem;
+  color: #0082e6;
+}
+
+.portafolio-box {
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem var(--bg-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Aseguramos que los botones se apilen verticalmente */
+}
+
+.portafolio-box .portafolio-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(245, 9, 154);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Asegura que los elementos dentro estén en columna */
+  text-align: center;
+  padding: 0 4rem;
+  transform: translateY(100%);
+  transition: .5s ease;
+}
+
+.portafolio-box:hover .portafolio-layer {
+  transform: translateY(0);
+}
+
+.portafolio-layer h4 {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.portafolio-layer p {
+  font-size: 12px;
+}
+
+.portafolio-layer .button-container {
+  display: flex;
+  flex-direction: column; /* Los botones estarán apilados verticalmente */
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center;
+  align-items: center; /* Centrar los botones */
+}
+
+.view-more, .add-to-cart {
+  width: 160px; /* Ancho consistente para ambos botones */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1em; /* Tamaño consistente */
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-more:hover, .add-to-cart:hover {
+  transform: scale(1.05); /* Efecto de expansión */
+}
+
+.view-more:active, .add-to-cart:active {
+  transform: scale(0.98); /* Efecto de contracción */
+}
+/* Estilo y animaciones para los botones (Ver más y Añadir al carrito) */
+
+/* Estilo del botón "Añadir al carrito" */
+.add-to-cart {
+  background-color: #d104c0; /* Fondo del botón */
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+/* Estilo del ícono dentro de los botones */
+.add-to-cart i {
+  margin-right: 8px; /* Espacio entre el ícono y el texto */
+  font-size: 1.2em;
+}
+
+/* Efectos hover y active */
+.add-to-cart:hover {
+  background-color: #b103a3; /* Fondo más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Animación de expansión */
+}
+
+.add-to-cart:active {
+  background-color: #9b0291; /* Fondo más oscuro al hacer clic */
+  transform: scale(0.98); /* Animación de contracción */
+}
+
+.add-to-cart:focus {
+  outline: none;
+  box-shadow: 0 0 10px #d104c0; /* Resaltar el botón al enfocar */
+}
+
+/* Estilo del botón "Ver más" */
+.view-more {
+  background-color: #d104c0; /* Fondo similar al del botón de "Añadir al carrito" */
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+/* Estilo del ícono dentro del botón "Ver más" */
+.view-more i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+/* Efectos hover y active */
+.view-more:hover {
+  background-color: #b103a3;
+  transform: scale(1.05);
+}
+
+.view-more:active {
+  background-color: #9b0291;
+  transform: scale(0.98);
+}
+
+.view-more:focus {
+  outline: none;
+  box-shadow: 0 0 10px #d104c0;
+}
+
+/* Respuesta en pantallas pequeñas */
+@media (max-width: 768px) {
+  .button-group {
+      flex-direction: column; /* Los botones se apilan en pantallas pequeñas */
+      align-items: center; /* Centramos los botones */
+      gap: 10px; /* Menor espacio entre los botones */
+  }
+}
+
+
+  /* Footer /Pie de pagina*/
+
+    footer{
+      background-color:#043b4b;
+      
+  }
+  .footerContainer{
+      width: 100%;
+      padding: 70px 30px 20px ;
+  }
+  .socialIcons{
+      display: flex;
+      justify-content: center;
+  }
+  .socialIcons a{
+      text-decoration: none;
+      padding:  10px;
+      background-color: #043b4b;
+      margin: 10px;
+      border-radius: 50%;
+  }
+  .socialIcons a i{
+      font-size: 2em;
+      color: black;
+      opacity: 0,9;
+  }
+  
+  .socialIcons a:hover{
+      background-color: #111;
+      transition: 0.5s;
+  }
+  .socialIcons a:hover i{
+      color: white;
+      transition: 0.5s;
+  }
+  .footerNav{
+      margin: 30px 0;
+  }
+  .footerNav ul{
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+  }
+  .footerNav ul li a{
+      color:white;
+      margin: 20px;
+      text-decoration: none;
+      font-size: 1.3em;
+      opacity: 0.7;
+      transition: 0.5s;
+  
+  }
+  .footerNav ul li a:hover{
+      opacity: 1;
+  }
+  .footerBottom{
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+  }
+  .footerBottom p{
+      color: white;
+  }
+  .designer{
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+      margin: 0px 5px;
+  }
+  @media (max-width: 700px){
+      .footerNav ul{
+          flex-direction: column;
+      } 
+      .footerNav ul li{
+          width:100%;
+          text-align: center;
+          margin: 10px;
+      }
+      .socialIcons a{
+          padding: 8px;
+          margin: 4px;
+      }
+  }
